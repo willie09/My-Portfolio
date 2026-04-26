@@ -50,30 +50,45 @@
                     </a>
                 </div>
             </div>
-            <div class="grid gap-6 sm:grid-cols-2">
-                @php
-                $services = [
-                    ['icon' => 'code', 'title' => 'Full-Stack Development', 'desc' => 'End-to-end web application development using Laravel with modern architecture patterns.'],
-                    ['icon' => 'layers', 'title' => 'API Design', 'desc' => 'Building robust RESTful APIs with proper authentication, documentation, and versioning strategies.'],
-                    ['icon' => 'zap', 'title' => 'Performance Optimization', 'desc' => 'Analyzing and improving application speed through caching, database optimization, and code refactoring.'],
-                    ['icon' => 'shield', 'title' => 'Security Hardening', 'desc' => 'Implementing security best practices including authentication, authorization, and data protection.'],
-                ];
-                @endphp
-                @foreach($services as $service)
-                <div class="rounded-xl border border-border bg-card p-6 transition-all hover:shadow-lg">
-                    @if($service['icon'] === 'code')
-                        <svg class="mb-4 h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                    @elseif($service['icon'] === 'layers')
-                        <svg class="mb-4 h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-                    @elseif($service['icon'] === 'zap')
-                        <svg class="mb-4 h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                    @else
-                        <svg class="mb-4 h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                    @endif
-                    <h3 class="mb-2 font-semibold">{{ $service['title'] }}</h3>
-                    <p class="text-sm text-muted-foreground">{{ $service['desc'] }}</p>
+            <div class="flex flex-col gap-8">
+                <!-- Profile Image -->
+                <div class="relative w-fit">
+                    <img src="{{ asset('images/w1.png') }}" alt="Profile" class="h-auto w-full max-w-[240px] rounded-xl object-cover shadow-lg transition-all duration-500 hover:scale-[1.02]">
+                    <!-- Floating badge -->
+                    <div class="absolute -bottom-3 -right-3 rounded-full border border-border bg-background px-3 py-1.5 shadow-md">
+                        <span class="flex items-center gap-1.5 text-xs font-medium">
+                            <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-green-500"></span>
+                            Open to work
+                        </span>
+                    </div>
                 </div>
-                @endforeach
+
+                <!-- Services Grid -->
+                <div class="grid gap-6 sm:grid-cols-2">
+                    @php
+                    $services = [
+                        ['icon' => 'code', 'title' => 'Full-Stack Development', 'desc' => 'End-to-end web application development using Laravel with modern architecture patterns.'],
+                        ['icon' => 'layers', 'title' => 'API Design', 'desc' => 'Building robust RESTful APIs with proper authentication, documentation, and versioning strategies.'],
+                        ['icon' => 'zap', 'title' => 'Performance Optimization', 'desc' => 'Analyzing and improving application speed through caching, database optimization, and code refactoring.'],
+                        ['icon' => 'shield', 'title' => 'Security Hardening', 'desc' => 'Implementing security best practices including authentication, authorization, and data protection.'],
+                    ];
+                    @endphp
+                    @foreach($services as $service)
+                    <div class="rounded-xl border border-border bg-card p-6 transition-all hover:shadow-lg">
+                        @if($service['icon'] === 'code')
+                            <svg class="mb-4 h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                        @elseif($service['icon'] === 'layers')
+                            <svg class="mb-4 h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                        @elseif($service['icon'] === 'zap')
+                            <svg class="mb-4 h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        @else
+                            <svg class="mb-4 h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        @endif
+                        <h3 class="mb-2 font-semibold">{{ $service['title'] }}</h3>
+                        <p class="text-sm text-muted-foreground">{{ $service['desc'] }}</p>
+                    </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
