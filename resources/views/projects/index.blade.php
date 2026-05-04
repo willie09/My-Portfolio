@@ -23,9 +23,13 @@
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             @foreach($projects as $project)
             <div class="group flex flex-col rounded-xl border border-border bg-card transition-all hover:shadow-lg">
-                <div class="flex h-48 items-center justify-center rounded-t-xl bg-gradient-to-br from-primary/10 to-primary/5">
-                    <svg class="h-12 w-12 text-primary/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-                </div>
+@if($project->image)
+                    <img src="{{ asset($project->image) }}" alt="{{ $project->title }}" class="h-48 w-full rounded-t-xl object-cover" loading="lazy" />
+@else
+                    <div class="flex h-48 items-center justify-center rounded-t-xl bg-gradient-to-br from-primary/10 to-primary/5">
+                        <svg class="h-12 w-12 text-primary/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                    </div>
+@endif
                 <div class="flex flex-1 flex-col p-6">
                     <div class="mb-2 flex items-center gap-2">
                         <h3 class="text-lg font-semibold">{{ $project->title }}</h3>

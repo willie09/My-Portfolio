@@ -4,11 +4,12 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProjectController;
 use App\Models\ContactMessage;
 use App\Models\Project;
+use App\Services\GitHubService;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome', [
-        'featuredProjects' => Project::where('featured', true)->orderBy('display_order')->get(),
+'featuredProjects' => GitHubService::getFeaturedRepos(),
     ]);
 })->name('home');
 

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactFormMail;
 use App\Models\ContactMessage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -20,6 +22,13 @@ class ContactController extends Controller
         ]);
 
         ContactMessage::create($validated);
+
+        try {
+            Mail::to('wsardido2@gmail.com')->send(new ContactFormMail($validated));
+        } catch (\Exception $e) {
+            \Illuminate\Support\Facades\Log::error('Failed to send contact email: ' . $e->getMessage());
+            return redirect()->back()->with('warning', 'Message saved, but email notification failed to send.');
+        }
 
         return redirect()->back()->with('success', 'Message sent successfully!');
     }

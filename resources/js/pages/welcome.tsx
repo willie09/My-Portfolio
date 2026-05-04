@@ -309,9 +309,17 @@ export default function Welcome({ featuredProjects }: WelcomeProps) {
                                 key={project.id}
                                 className="group border-border bg-card flex flex-col rounded-xl border transition-all hover:shadow-lg"
                             >
-                                <div className="from-primary/10 to-primary/5 flex h-48 items-center justify-center rounded-t-xl bg-gradient-to-br">
-                                    <Layers className="text-primary/40 h-12 w-12" />
-                                </div>
+                                {project.image ? (
+                                    <img
+                                        src={project.image.startsWith('http') ? project.image : `/${project.image}`}
+                                        alt={project.title}
+                                        className="h-48 w-full rounded-t-xl object-cover"
+                                    />
+                                ) : (
+                                    <div className="from-primary/10 to-primary/5 flex h-48 items-center justify-center rounded-t-xl bg-gradient-to-br">
+                                        <Layers className="text-primary/40 h-12 w-12" />
+                                    </div>
+                                )}
                                 <div className="flex flex-1 flex-col p-6">
                                     <h3 className="mb-2 text-lg font-semibold">{project.title}</h3>
                                     <p className="text-muted-foreground mb-4 line-clamp-3 flex-1 text-sm">{project.description}</p>

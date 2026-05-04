@@ -8,35 +8,35 @@ use Illuminate\Database\Seeder;
 class ProjectSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     *
      */
     public function run(): void
     {
-        $projects = [
+$projects = [
             [
-                'title' => 'E-Commerce Platform',
-                'description' => 'A full-stack e-commerce platform built with Laravel and React. Features include user authentication, product catalog, shopping cart, payment integration with Stripe, and order management.',
-                'tech_stack' => ['Laravel', 'React', 'Tailwind CSS', 'Stripe', 'MySQL'],
-                'github_url' => 'https://github.com',
-                'live_url' => 'https://example.com',
+                'title' => 'PAC E-library',
+                'description' => 'Philippine Advent College e-library is a Laravel 12-based digital library system for educational institutions.',
+                'tech_stack' => ['Laravel 12', 'MySQL', 'Blade'],
+                'github_url' => 'https://github.com/example/pac-elibrary',
+                'live_url' => 'https://pacelib.online/',
                 'featured' => true,
                 'display_order' => 1,
             ],
             [
-                'title' => 'Task Management App',
-                'description' => 'A collaborative task management application with real-time updates, drag-and-drop kanban boards, team workspaces, and notification system.',
-                'tech_stack' => ['Laravel', 'Inertia.js', 'Vue.js', 'Pusher', 'SQLite'],
-                'github_url' => 'https://github.com',
-                'live_url' => null,
+                'title' => 'Fitness Gain$',
+                'description' => 'A web-based system that simplifies gym management and operations. It also includes AI chatbot.',
+                'tech_stack' => ['Laravel', 'React', 'Tailwind', 'AI Chatbot'],
+                'github_url' => 'https://github.com/example/fitness-gains',
+                'live_url' => 'https://fitnessgains.site/',
                 'featured' => true,
                 'display_order' => 2,
             ],
             [
-                'title' => 'Portfolio CMS',
-                'description' => 'A content management system designed for creatives to showcase their work. Includes customizable themes, image galleries, and contact forms.',
-                'tech_stack' => ['Laravel', 'React', 'Inertia.js', 'Tailwind CSS'],
-                'github_url' => 'https://github.com',
-                'live_url' => 'https://example.com',
+                'title' => 'Monco',
+                'description' => 'An online local clothing store.',
+                'tech_stack' => ['Laravel', 'Inertia.js', 'Tailwind CSS'],
+                'github_url' => 'https://github.com/example/monco-store',
+                'live_url' => 'https://monco.example.com',
                 'featured' => true,
                 'display_order' => 3,
             ],

@@ -42,31 +42,38 @@
                     I specialize in the Laravel ecosystem delivering robust, performant applications with exceptional user experiences.
                 </p>
                 <div class="flex gap-4">
-                    <a href="https://github.com" target="_blank" class="rounded-md border border-border p-3 transition-colors hover:bg-muted">
+                    <a href="https://github.com/willie09" target="_blank" class="rounded-md border border-border p-3 transition-colors hover:bg-muted">
                         <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                     </a>
-                    <a href="mailto:hello@example.com" class="rounded-md border border-border p-3 transition-colors hover:bg-muted">
+                    <a href="mailto:wsardido2@gmail.com" class="rounded-md border border-border p-3 transition-colors hover:bg-muted">
                         <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                     </a>
                 </div>
             </div>
-            <div class="flex flex-col gap-8">
-                <!-- Profile Image -->
-                <div class="relative w-fit">
-                    <img src="{{ asset('images/w1.png') }}" alt="Profile" class="h-auto w-full max-w-[240px] rounded-xl object-cover shadow-lg transition-all duration-500 hover:scale-[1.02]">
-                    <!-- Floating badge -->
-                    <div class="absolute -bottom-3 -right-3 rounded-full border border-border bg-background px-3 py-1.5 shadow-md">
-                        <span class="flex items-center gap-1.5 text-xs font-medium">
-                            <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-green-500"></span>
-                            Open to work
-                        </span>
-                    </div>
+            <!-- Profile Photo -->
+            <div class="flex justify-center lg:justify-end">
+                <div class="group relative">
+                    <img 
+                        src="{{ asset('images/profile.png') }}" 
+                        alt="Profile Photo" 
+                        class="h-64 w-64 rounded-full object-cover shadow-xl ring-4 ring-background lg:h-80 lg:w-80 transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl mx-auto lg:mx-0"
+                        loading="lazy"
+                    />
+                    <div class="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/10 to-transparent rounded-full blur opacity-0 transition-all duration-500 group-hover:opacity-100 lg:inset-1 lg:rounded-[200px]"></div>
                 </div>
+            </div>
 
-                <!-- Services Grid -->
-                <div class="grid gap-6 sm:grid-cols-2">
-                    @php
-                    $services = [
+            <!-- Services Grid -->
+            
+        </div>
+    </div>
+</section>
+
+
+<section id="skills" class=" px-4 sm:px-6 lg:px-8">
+<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                @php
+                $services = [
                         ['icon' => 'code', 'title' => 'Full-Stack Development', 'desc' => 'End-to-end web application development using Laravel with modern architecture patterns.'],
                         ['icon' => 'layers', 'title' => 'API Design', 'desc' => 'Building robust RESTful APIs with proper authentication, documentation, and versioning strategies.'],
                         ['icon' => 'zap', 'title' => 'Performance Optimization', 'desc' => 'Analyzing and improving application speed through caching, database optimization, and code refactoring.'],
@@ -90,12 +97,9 @@
                     @endforeach
                 </div>
             </div>
-        </div>
-    </div>
 </section>
-
 <!-- Skills Section -->
-<section id="skills" class="bg-muted/50 px-4 py-24 sm:px-6 lg:px-8">
+<section id="skills" class="bg-muted/50 px-4 py-15 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-7xl">
         <div class="mb-12 text-center">
             <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">Technical Skills</h2>
@@ -105,7 +109,7 @@
         $skillGroups = [
             'Backend' => ['Laravel', 'PHP', 'REST APIs', 'Testing'],
             'Frontend' => ['Blade', 'Tailwind CSS', 'Alpine.js'],
-            'Database' => ['MySQL', 'SQLite'],
+            'Database' => ['MySQL'],
             'Tools' => ['Git', 'Docker'],
         ];
         @endphp
@@ -132,18 +136,20 @@
                 <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">Featured Projects</h2>
                 <p class="max-w-2xl text-muted-foreground">A selection of projects that showcase my skills and passion for development</p>
             </div>
-            <a href="{{ route('projects') }}" class="hidden items-center gap-2 text-sm font-medium text-primary hover:underline sm:flex">
-                View All Projects
-                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-            </a>
+            
         </div>
 
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             @foreach($featuredProjects as $project)
             <div class="group flex flex-col rounded-xl border border-border bg-card transition-all hover:shadow-lg">
-                <div class="flex h-48 items-center justify-center rounded-t-xl bg-gradient-to-br from-primary/10 to-primary/5">
-                    <svg class="h-12 w-12 text-primary/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-                </div>
+
+@if($project->image)
+                    <img src="{{ asset($project->image) }}" alt="{{ $project->title }}" class="h-48 w-full rounded-t-xl object-cover" loading="lazy" />
+@else
+                    <div class="flex h-48 items-center justify-center rounded-t-xl bg-gradient-to-br from-primary/10 to-primary/5">
+                        <svg class="h-12 w-12 text-primary/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                    </div>
+@endif
                 <div class="flex flex-1 flex-col p-6">
                     <h3 class="mb-2 text-lg font-semibold">{{ $project->title }}</h3>
                     <p class="mb-4 line-clamp-3 flex-1 text-sm text-muted-foreground">{{ $project->description }}</p>
@@ -183,6 +189,14 @@
 <!-- Contact Section -->
 <section id="contact" class="bg-muted/50 px-4 py-24 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-7xl">
+        @if(session('success'))
+        <div class="mb-6 rounded-xl border border-green-200 bg-green-50 p-4 text-green-800">
+            <div class="flex items-center gap-3">
+                <svg class="h-5 w-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <p class="text-sm font-medium">{{ session('success') }}</p>
+            </div>
+        </div>
+        @endif
         <div class="grid gap-12 lg:grid-cols-2">
             <div>
                 <h2 class="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">Let's Work Together</h2>
@@ -196,7 +210,7 @@
                         </div>
                         <div>
                             <p class="text-sm font-medium">Email</p>
-                            <p class="text-sm text-muted-foreground">hello@example.com</p>
+                            <p class="text-sm text-muted-foreground">wsardido2@gmail.com</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
@@ -205,14 +219,18 @@
                         </div>
                         <div>
                             <p class="text-sm font-medium">GitHub</p>
-                            <p class="text-sm text-muted-foreground">github.com/example</p>
+                            <a href="https://github.com/willie09" target="_blank" class="text-sm text-muted-foreground hover:underline">github.com/willie09</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <form action="{{ route('contact.store') }}" method="POST" class="space-y-4 rounded-xl border border-border bg-background p-6 sm:p-8">
+
+
+<form action="{{ route('contact.store') }}" method="POST" class="space-y-4 rounded-xl border border-border bg-background p-6 sm:p-8">
                 @csrf
+                
+                    <div class="mb-4 blck text-3xl font-bold">Send me an email through this form.</div>
                 <div class="grid gap-4 sm:grid-cols-2">
                     <div>
                         <label for="name" class="mb-2 block text-sm font-medium">Name</label>
