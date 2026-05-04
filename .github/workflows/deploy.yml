@@ -1,0 +1,56 @@
+name: Build &amp; Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Cache Composer
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+
+      - name: Install Composer deps
+        run: composer install --no-dev --optimize-autoloader
+
+      - name: Install NPM deps
+        run: npm ci
+
+      - name: Build assets
+        run: npm run build
+
+      - name: Optimize Laravel
+        run: |
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:cache
+
+      - name: Archive files
+        uses: actions/upload-artifact@v4
+        with:
+          name: deploy-files
+          path: |
+            !node_modules
+            !vendor
+            !.git
+            !tests
+            !storage
+            .
